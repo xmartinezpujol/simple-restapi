@@ -9,7 +9,7 @@ class ImageCard extends React.Component{
   render() {
     return(
       <div>
-        Hola!
+        {this.props.title}
       </div>
     );
   }

@@ -8,19 +8,21 @@ class Gallery extends React.Component{
   }
 
   render() {
+    let data_gallery = this.props.data;
+
     return(
-      const data_gallery = this.props.data;
       <div className='gallery'>
-        {this.props.data.map((card) => {
+        {this.props.data.map((card, index) => {
           return(
             <ImageCard
-              title={data_gallery.title}
-              img={data_gallery.img}
-              price={data_gallery.price}
-              text={data_gallery.text}
+              key={data_gallery[index].title}
+              title={data_gallery[index].title}
+              img={data_gallery[index].img}
+              price={data_gallery[index].price}
+              text={data_gallery[index].text}
             />
           );
-        });
+        })}
       </div>
     );
   }
