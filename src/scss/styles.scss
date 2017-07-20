@@ -1,0 +1,41 @@
+@import 'core/variables';
+
+body{
+  margin: 0;
+}
+
+/* ----- COMPONENTS  ----- */
+
+/* Gallery */
+.gallery{
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  background-color:  $color_1;
+}
+
+.gallery-title{
+  text-align: center;
+}
+
+.card{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 200px;
+  min-width: 200px;
+  max-width: 200px;
+  background-color: $color_2;
+  flex: 1;
+  margin: 20px;
+  img{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .card-image{
+    height: 100px;
+    overflow: hidden;
+  }
+}

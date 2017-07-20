@@ -8,8 +8,11 @@ class ImageCard extends React.Component{
 
   render() {
     return(
-      <div>
-        {this.props.title}
+      <div className='card'>
+        <div className='card-image'>
+          <img src={this.props.img} />
+        </div>  
+      <h2>{this.props.title}</h2>
       </div>
     );
   }

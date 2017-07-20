@@ -1,5 +1,5 @@
-const path = require('path');
-const webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var path = require('path');
 
 module.exports = {
   entry: './src/index.js',
@@ -16,16 +16,28 @@ module.exports = {
           loader: 'babel-loader',
           options: { presets: ['react', 'es2015', 'stage-1'] }
         }]
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
       }
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    open: true,
-    port: 3000,
-    historyApiFallback: true,
-    disableHostCheck: true,
-  },
+      host: 'localhost',
+      port: 3000,
+      contentBase: './dist',
+      open: true,
+      openPage: '', // <== Add this
+    },
   plugins: [
+    new ExtractTextPlugin({
+        filename: 'app.css',
+        disable: false,
+        allChunks: true
+    })    
   ],
 };
