@@ -1,10 +1,34 @@
 import React from 'react';
 import ImageCard from './ImageCard';
+import Modal from './Modal';
+
+const IMG_FOLDER = './img/';
 
 class Gallery extends React.Component{
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {
+      modal_opened: 'closed',
+      selected: 0
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal(id) {
+    this.setState(() => {
+      return {
+        modal_opened: 'open',
+        selected: id
+      }
+    });
+  }
+
+  closeModal() {
+    this.setState(() => {
+      return {modal_opened: 'closed'}
+    });
   }
 
   render() {
@@ -17,15 +41,18 @@ class Gallery extends React.Component{
           {this.props.data.map((card, index) => {
             return(
               <ImageCard
-                key={data_gallery[index].title}
+                key={data_gallery[index].id}
+                id={data_gallery[index].id}
                 title={data_gallery[index].title}
                 img={data_gallery[index].img}
                 resolution={data_gallery[index].resolution}
-                price={data_gallery[index].price}
                 text={data_gallery[index].text}
+                downloads={data_gallery[index].downloads}
+                onOpenModal={this.openModal}
               />
             );
           })}
+          <Modal imgsel={IMG_FOLDER + data_gallery[this.state.selected].img} onCloseModal={this.closeModal} status={this.state.modal_opened} />
         </div>
       </div>
     );
