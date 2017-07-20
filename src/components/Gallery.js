@@ -20,6 +20,7 @@ class Gallery extends React.Component{
                 key={data_gallery[index].title}
                 title={data_gallery[index].title}
                 img={data_gallery[index].img}
+                resolution={data_gallery[index].resolution}
                 price={data_gallery[index].price}
                 text={data_gallery[index].text}
               />
