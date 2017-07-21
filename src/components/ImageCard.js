@@ -1,5 +1,6 @@
 import React from 'react';
 
+const THUMBNAILS_FOLDER = './img/thumbnails/';
 const IMG_FOLDER = './img/';
 
 class ImageCard extends React.Component{
@@ -12,7 +13,8 @@ class ImageCard extends React.Component{
     this.downloadImage = this.downloadImage.bind(this);
   }
 
-  downloadImage() {
+  downloadImage(e) {
+    e.stopPropagation();
     this.setState(() => {
       return {downloads : this.state.downloads + 1}
     });
@@ -21,11 +23,11 @@ class ImageCard extends React.Component{
   render() {
     return(
       <div onClick={(e) => this.props.onOpenModal(this.props.id)} className='card'>
-        <a onClick={this.downloadImage} href={IMG_FOLDER + this.props.img} download={this.props.img}>
+        <a onClick={(e) => this.downloadImage(e)} href={IMG_FOLDER + this.props.img + '.jpg'} download={this.props.img + '.jpg'}>
           <div className='download-image' data-icon="ei-arrow-down" data-size="s"></div>
         </a>
         <div className='card-image'>
-          <img src={IMG_FOLDER + this.props.img} />
+          <img src={THUMBNAILS_FOLDER + this.props.img + '_s.jpg'} />
         </div>
         <div className='card-info'>
           <div className='card-res'>

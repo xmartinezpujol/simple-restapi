@@ -52,7 +52,13 @@ class Gallery extends React.Component{
               />
             );
           })}
-          <Modal imgsel={IMG_FOLDER + data_gallery[this.state.selected].img} onCloseModal={this.closeModal} status={this.state.modal_opened} />
+          <Modal
+            title={data_gallery[this.state.selected].title}
+            author={data_gallery[this.state.selected].author}
+            imgsel={IMG_FOLDER + data_gallery[this.state.selected].img}
+            likes={data_gallery[this.state.selected].likes}
+            onCloseModal={this.closeModal}
+            status={this.state.modal_opened} />
         </div>
       </div>
     );
