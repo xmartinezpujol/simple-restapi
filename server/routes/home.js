@@ -34,7 +34,7 @@ router.get('/api/galleries/:id/:idPhoto', function(req, res) {
   }
 });
 
-router.get('/api/galleries/:id/:idPhoto/likeimg', (req, res) => {
+router.post('/api/galleries/:id/:idPhoto/likeimg', (req, res) => {
   var galleryId = req.params.id;
   var photoId = parseInt(req.params.idPhoto);
 

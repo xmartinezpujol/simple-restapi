@@ -1,5 +1,8 @@
 import React from 'react';
 
+const HEROKU = 'https://simple-restapi.herokuapp.com/';
+const LOCAL = 'http://localhost:8080/';
+
 class LikeCounter extends React.Component{
   constructor(props){
     super(props);
@@ -17,8 +20,8 @@ class LikeCounter extends React.Component{
     });
 
     //Modify data on server
-    let url = `http://localhost:8080/api/galleries/${this.props.path}/likeimg`;
-    fetch(url)
+    let url = `${HEROKU}api/galleries/${this.props.path}/likeimg`;
+    fetch(url, {method: 'POST'})
       .catch((res) => {
         console.log('ERROR: Could not update likes in the API!');
       });

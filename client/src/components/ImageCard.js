@@ -2,6 +2,7 @@ import React from 'react';
 
 const THUMBNAILS_FOLDER = '/thumbnails/';
 const SERVER_URL = 'http://localhost:8080/';
+const HEROKU_URL = 'https://simple-restapi.herokuapp.com/';
 
 class ImageCard extends React.Component{
   constructor(props){
@@ -23,11 +24,11 @@ class ImageCard extends React.Component{
   render() {
     return(
       <div onClick={(e) => this.props.onOpenModal(this.props.id)} className='card'>
-        <a onClick={(e) => this.downloadImage(e)} href={SERVER_URL + this.props.keyword + '/' + this.props.img + '.jpg'} download>
+        <a onClick={(e) => this.downloadImage(e)} href={HEROKU_URL + this.props.keyword + '/' + this.props.img + '.jpg'} download>
           <div className='download-image' data-icon="ei-arrow-down" data-size="s"></div>
         </a>
         <div className='card-image'>
-          <img src={SERVER_URL + this.props.keyword + THUMBNAILS_FOLDER + this.props.img  + '_s.jpg'} />
+          <img src={HEROKU_URL + this.props.keyword + THUMBNAILS_FOLDER + this.props.img  + '_s.jpg'} />
         </div>
         <div className='card-info'>
           <div className='card-res'>

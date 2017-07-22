@@ -2,6 +2,8 @@ import React from 'react';
 import Gallery from './Gallery';
 
 const GALLERY = 'oriental';
+const HEROKU = 'https://simple-restapi.herokuapp.com/';
+const LOCAL = 'http://localhost:8080/';
 
 class App extends React.Component{
   constructor(props){
@@ -16,7 +18,7 @@ class App extends React.Component{
   }
 
   loadGallery(id) {
-    let url = `http://localhost:8080/api/galleries/${id}`;
+    let url = `${HEROKU}api/galleries/${id}`;
     fetch(url)
       .then(response => response.json())
       .then(res => this.setState({ data: res}))

@@ -2,6 +2,7 @@ import React from 'react';
 import LikeCounter from './LikeCounter';
 
 const SERVER_URL = 'http://localhost:8080/';
+const HEROKU_URL = 'https://simple-restapi.herokuapp.com/';
 
 class Modal extends React.Component{
   constructor(props){
@@ -28,7 +29,7 @@ class Modal extends React.Component{
           <div className='download-detail' data-icon="ei-arrow-down" data-size="s"></div>
         </a>
         <LikeCounter key={this.props.id} path={`${this.props.keyword}/${this.props.id}`} likes={this.props.likes} />
-        <img src={SERVER_URL + this.props.keyword + '/' + this.props.imgsel + '.jpg'} />
+        <img src={HEROKU_URL + this.props.keyword + '/' + this.props.imgsel + '.jpg'} />
       </div>
     );
   }
