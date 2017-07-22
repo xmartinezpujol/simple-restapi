@@ -30,5 +30,23 @@ Make Production Bundle - Client (ReactJS App)
 npm run prod
 ```
 
+### API URLs
+
+GET all galleries
+``` shell
+http://localhost:8080/api/galleries/
+```
+
+GET a gallery by it's keyword identifier
+``` shell
+http://localhost:8080/api/galleries/oriental/
+```
+
+GET a gallery detail image
+``` shell
+http://localhost:8080/api/galleries/oriental/2
+```
+
+
 ### Tech Stack
 ReactJS, NodeJS, Express

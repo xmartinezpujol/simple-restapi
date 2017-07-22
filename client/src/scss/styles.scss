@@ -22,13 +22,21 @@ a{
 
 /* Gallery */
 .gallery{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   background-color:  $color_1;
 }
 
 .gallery-wrapper{
+  -webkit-transition: all 0.6s ease-in;
   transition: all 0.6s ease-in;
   opacity: 0;
 }
@@ -39,16 +47,25 @@ a{
 
 .card{
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background-color: $color_2;
   margin: 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  -webkit-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   text-align: center;
   &:hover {
+    cursor: -webkit-zoom-in;
     cursor: zoom-in;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
   img{
     display: block;
@@ -61,18 +78,30 @@ a{
     overflow: hidden;
   }
   .card-info{
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    align-items: center;
-    justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     padding: 10px;
     font-size: 14px;
     .icon{
       margin-right: 10px;
     }
     .card-res{
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-flow: row wrap;
-      align-items: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: row wrap;
+              flex-flow: row wrap;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
     }
   }
   .download-image{
@@ -97,17 +126,28 @@ a{
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-transition: -webkit-transform 0.8s ease;
+  transition: -webkit-transform 0.8s ease;
   transition: transform 0.8s ease;
-  transform: translateY(100vh);
-  animation-delay: 2s;
+  transition: transform 0.8s ease, -webkit-transform 0.8s ease;
+  -webkit-transform: translateY(100vh);
+          transform: translateY(100vh);
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
   overflow: hidden;
   &[data-open='open'] {
-    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    cursor: -webkit-zoom-out;
     cursor: zoom-out;
   }
   .download-detail{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 100px;
     padding: 10px;
     font-size: 16px;
@@ -127,8 +167,12 @@ a{
     }
   }
   .like-detail{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 10px;
     font-size: 16px;
     line-height: 25px;
@@ -175,7 +219,8 @@ a{
   }
   img{
     display: block;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     min-height: 100vh;
     width: 100vw;
   }
@@ -184,9 +229,15 @@ a{
 
 //LOADERS
 .loader{
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100vh;
   width: 100vw;
 }
@@ -212,7 +263,8 @@ a{
 	border-right: none;
 	border-top: none;
 	background-clip: padding;
-	box-shadow: inset 0px 0px 10px rgba(0,255,170,0.15);
+	-webkit-box-shadow: inset 0px 0px 10px rgba(0,255,170,0.15);
+	        box-shadow: inset 0px 0px 10px rgba(0,255,170,0.15);
 }
 
 .cssload-circle:nth-of-type(0) {
@@ -272,28 +324,12 @@ a{
 
 @keyframes cssload-spin {
 	from {
-		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		        transform: rotate(0deg);
 	}
 	to {
-		transform: rotate(360deg);
-	}
-}
-
-@-o-keyframes cssload-spin {
-	from {
-		-o-transform: rotate(0deg);
-	}
-	to {
-		-o-transform: rotate(360deg);
-	}
-}
-
-@-ms-keyframes cssload-spin {
-	from {
-		-ms-transform: rotate(0deg);
-	}
-	to {
-		-ms-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
 	}
 }
 
@@ -303,14 +339,5 @@ a{
 	}
 	to {
 		-webkit-transform: rotate(360deg);
-	}
-}
-
-@-moz-keyframes cssload-spin {
-	from {
-		-moz-transform: rotate(0deg);
-	}
-	to {
-		-moz-transform: rotate(360deg);
 	}
 }

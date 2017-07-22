@@ -5,7 +5,7 @@ var dataFile = require('./data/galleries.json');
 app.set('port', process.env.PORT || 8080);
 app.set('appData', dataFile);
 app.set('view engine', 'pug');
-app.set('views', 'app/views');
+app.set('views', 'server/views');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
