@@ -15,6 +15,7 @@ class Gallery extends React.Component{
   }
 
   openModal(id) {
+    document.body.style.overflowY = 'hidden';
     this.setState(() => {
       return {
         modal_opened: 'open',
@@ -24,9 +25,11 @@ class Gallery extends React.Component{
   }
 
   closeModal() {
+    document.body.style.overflowY = 'scroll';
     this.setState(() => {
       return {modal_opened: 'closed'}
     });
+    this.props.onDataChange(); 
   }
 
   componentDidMount() {
@@ -65,6 +68,7 @@ class Gallery extends React.Component{
             imgsel={data_gallery[this.state.selected].img}
             likes={data_gallery[this.state.selected].likes}
             onCloseModal={this.closeModal}
+            id={this.state.selected}
             status={this.state.modal_opened} />
         </div>
       </div>

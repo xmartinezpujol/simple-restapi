@@ -1,4 +1,5 @@
 import React from 'react';
+import LikeCounter from './LikeCounter';
 
 const SERVER_URL = 'http://localhost:8080/';
 
@@ -6,26 +7,16 @@ class Modal extends React.Component{
   constructor(props){
     super(props);
     this.state= {
-      likes: 0,
       closed: false
     };
 
-    this.likeImage = this.likeImage.bind(this);
+    this.test = this.test.bind(this);
+
   }
 
-  likeImage(e) {
-    e.stopPropagation();
-    this.setState(() => {
-      return {likes : this.state.likes + 1}
-    });
-  }
+  test(){
+  //  alert();
 
-  componentDidMount(){
-    alert('mount');
-  }
-
-  componentDidUnmount(){
-    alert('unmount');
   }
 
   render(){
@@ -36,10 +27,7 @@ class Modal extends React.Component{
         <a href={this.props.imgsel + '.jpg'} download>
           <div className='download-detail' data-icon="ei-arrow-down" data-size="s"></div>
         </a>
-        <a className='like-detail' onClick={(e) => this.likeImage(e)}>
-          <div data-icon="ei-heart" data-size="s"></div>
-          <span>{this.state.likes}</span>
-        </a>
+        <LikeCounter key={this.props.id} path={`${this.props.keyword}/${this.props.id}`} likes={this.props.likes} />
         <img src={SERVER_URL + this.props.keyword + '/' + this.props.imgsel + '.jpg'} />
       </div>
     );

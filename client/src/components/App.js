@@ -1,20 +1,18 @@
 import React from 'react';
 import Gallery from './Gallery';
 
+const GALLERY = 'oriental';
+
 class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       data: null,
-      keyword: 'oriental'
-
+      keyword: GALLERY
     };
 
     this.loadGallery = this.loadGallery.bind(this);
-  }
-
-  componentDidMount(){
-    this.loadGallery(this.state.keyword);
+    this.reloadGallery = this.reloadGallery.bind(this);
   }
 
   loadGallery(id) {
@@ -27,12 +25,18 @@ class App extends React.Component{
       });
   }
 
+  //Need to reload at each data change on the server
+  reloadGallery(){
+    this.forceUpdate();
+  }
+
   render(){
     let data = {};
+    this.loadGallery(this.state.keyword);
     return(
       <div className='container'>
         {this.state.data !== null &&
-          <Gallery keyword={this.state.keyword} name={this.state.data.name} data={this.state.data.photos} />
+          <Gallery onDataChange={this.reloadGallery} keyword={this.state.keyword} name={this.state.data.name} data={this.state.data.photos} />
         }
         {this.state.data === null &&
           <div className='loader'>
