@@ -27,18 +27,23 @@ class App extends React.Component{
       });
   }
 
+  componentDidMount(){
+    this.loadGallery(this.state.keyword);
+  }
+
   //Need to reload at each data change on the server
   reloadGallery(){
+    this.loadGallery(this.state.keyword);
     this.forceUpdate();
   }
 
   render(){
     let data = {};
-    this.loadGallery(this.state.keyword);
+
     return(
       <div className='container'>
         {this.state.data !== null &&
-          <Gallery onDataChange={this.reloadGallery} keyword={this.state.keyword} name={this.state.data.name} data={this.state.data.photos} />
+          <Gallery key={1} onDataChange={this.reloadGallery} keyword={this.state.keyword} name={this.state.data.name} data={this.state.data.photos} />
         }
         {this.state.data === null &&
           <div className='loader'>
