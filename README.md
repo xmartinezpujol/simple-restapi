@@ -47,6 +47,15 @@ GET a gallery detail image
 http://localhost:8080/api/galleries/oriental/2
 ```
 
+Direct link to image file
+```
+http://localhost:8080/oriental/sushi.jpg
+```
+
+### About React Routing and Redux
+
+Because of the app scale it isn't actually needed a solution like Redux or App Routing (at moment we only show a single view with default gallery)
+
 
 ### Tech Stack
 ReactJS, NodeJS, Express

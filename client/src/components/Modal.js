@@ -20,6 +20,14 @@ class Modal extends React.Component{
     });
   }
 
+  componentDidMount(){
+    alert('mount');
+  }
+
+  componentDidUnmount(){
+    alert('unmount');
+  }
+
   render(){
     return(
       <div onClick={this.props.onCloseModal} className='modal' data-open={this.props.status}>
@@ -30,7 +38,7 @@ class Modal extends React.Component{
         </a>
         <a className='like-detail' onClick={(e) => this.likeImage(e)}>
           <div data-icon="ei-heart" data-size="s"></div>
-          <span>{this.props.likes}</span>
+          <span>{this.state.likes}</span>
         </a>
         <img src={SERVER_URL + this.props.keyword + '/' + this.props.imgsel + '.jpg'} />
       </div>
