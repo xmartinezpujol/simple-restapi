@@ -1,11 +1,14 @@
 import React from 'react';
 
-const IMG_FOLDER = './img/';
+const SERVER_URL = 'http://localhost:8080/';
 
 class Modal extends React.Component{
   constructor(props){
     super(props);
-    this.state= {likes : this.props.likes};
+    this.state= {
+      likes: 0,
+      closed: false
+    };
 
     this.likeImage = this.likeImage.bind(this);
   }
@@ -27,9 +30,9 @@ class Modal extends React.Component{
         </a>
         <a className='like-detail' onClick={(e) => this.likeImage(e)}>
           <div data-icon="ei-heart" data-size="s"></div>
-          <span>{this.state.likes}</span>
+          <span>{this.props.likes}</span>
         </a>
-        <img src={this.props.imgsel + '.jpg'} />
+        <img src={SERVER_URL + this.props.keyword + '/' + this.props.imgsel + '.jpg'} />
       </div>
     );
   }

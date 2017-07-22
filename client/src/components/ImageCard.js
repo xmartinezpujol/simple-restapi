@@ -1,7 +1,7 @@
 import React from 'react';
 
-const THUMBNAILS_FOLDER = './img/thumbnails/';
-const IMG_FOLDER = './img/';
+const THUMBNAILS_FOLDER = '/thumbnails/';
+const SERVER_URL = 'http://localhost:8080/';
 
 class ImageCard extends React.Component{
   constructor(props){
@@ -23,11 +23,11 @@ class ImageCard extends React.Component{
   render() {
     return(
       <div onClick={(e) => this.props.onOpenModal(this.props.id)} className='card'>
-        <a onClick={(e) => this.downloadImage(e)} href={IMG_FOLDER + this.props.img + '.jpg'} download={this.props.img + '.jpg'}>
+        <a onClick={(e) => this.downloadImage(e)} href={SERVER_URL + this.props.keyword + '/' + this.props.img + '.jpg'} download>
           <div className='download-image' data-icon="ei-arrow-down" data-size="s"></div>
         </a>
         <div className='card-image'>
-          <img src={THUMBNAILS_FOLDER + this.props.img + '_s.jpg'} />
+          <img src={SERVER_URL + this.props.keyword + THUMBNAILS_FOLDER + this.props.img  + '_s.jpg'} />
         </div>
         <div className='card-info'>
           <div className='card-res'>

@@ -2,10 +2,10 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './client/src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './client/dist'),
   },
   module: {
     rules: [
@@ -29,7 +29,7 @@ module.exports = {
   devServer: {
       host: 'localhost',
       port: 3000,
-      contentBase: './dist',
+      contentBase: './client/dist',
       open: true,
       openPage: '', // <== Add this
     },
@@ -38,6 +38,6 @@ module.exports = {
         filename: 'app.css',
         disable: false,
         allChunks: true
-    })    
+    })
   ],
 };

@@ -2,8 +2,6 @@ import React from 'react';
 import ImageCard from './ImageCard';
 import Modal from './Modal';
 
-const IMG_FOLDER = './img/';
-
 class Gallery extends React.Component{
   constructor(props){
     super(props);
@@ -31,17 +29,25 @@ class Gallery extends React.Component{
     });
   }
 
+  componentDidMount() {
+    setTimeout(() => {
+      let el = document.querySelector('.gallery-wrapper');
+      el.style.opacity = 1;
+    }, 500);
+  }
+
   render() {
     let data_gallery = this.props.data;
 
     return(
-      <div>
+      <div className='gallery-wrapper'>
         <h1 className='gallery-title'>{this.props.name}</h1>
         <div className='gallery'>
           {this.props.data.map((card, index) => {
             return(
               <ImageCard
                 key={data_gallery[index].id}
+                keyword={this.props.keyword}
                 id={data_gallery[index].id}
                 title={data_gallery[index].title}
                 img={data_gallery[index].img}
@@ -53,9 +59,10 @@ class Gallery extends React.Component{
             );
           })}
           <Modal
+            keyword={this.props.keyword}
             title={data_gallery[this.state.selected].title}
             author={data_gallery[this.state.selected].author}
-            imgsel={IMG_FOLDER + data_gallery[this.state.selected].img}
+            imgsel={data_gallery[this.state.selected].img}
             likes={data_gallery[this.state.selected].likes}
             onCloseModal={this.closeModal}
             status={this.state.modal_opened} />
