@@ -25,11 +25,13 @@ class Gallery extends React.Component{
   }
 
   closeModal() {
-    document.body.style.overflowY = 'scroll';
+    setTimeout(() => {
+      document.body.style.overflowY = 'scroll';
+    }, 1000);
     this.setState(() => {
       return {modal_opened: 'closed'}
     });
-    this.props.onDataChange(); 
+    this.props.onDataChange();
   }
 
   componentDidMount() {
