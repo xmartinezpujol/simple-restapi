@@ -65,4 +65,4 @@ Because of the app scale it isn't actually needed a solution like Redux or App R
 
 
 ### Tech Stack
-ReactJS, NodeJS, Express, Webpack3 + DevServer, SASS, Pug(Jade). 
+ReactJS, NodeJS, Express, Webpack3 + DevServer, SASS, Pug(Jade).

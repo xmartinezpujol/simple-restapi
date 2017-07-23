@@ -16,7 +16,7 @@ class LikeCounter extends React.Component{
       return {likes: this.state.likes + 1}
     });
 
-    //Modify data on server
+    //Modify likes data on server
     let url = `${window.serverURL}api/galleries/${this.props.path}/likeimg`;
     fetch(url, {method: 'POST'})
       .catch((res) => {
@@ -35,6 +35,5 @@ class LikeCounter extends React.Component{
     );
   }
 }
-
 
 export default LikeCounter;

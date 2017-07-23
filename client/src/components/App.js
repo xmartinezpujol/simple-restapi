@@ -25,7 +25,12 @@ class App extends React.Component{
     let url = `${window.serverURL}api/galleries/${id}`;
     fetch(url)
       .then(response => response.json())
-      .then(res => this.setState({ data: res}))
+      .then((res) => {
+        this.setState(() => {
+          return {data: res}
+        });
+        }
+      )
       .catch((res) => {
         console.log('ERROR: No image from API!');
       });
@@ -37,7 +42,7 @@ class App extends React.Component{
   }
 
   componentDidMount(){
-    this.setServerConfig(HEROKU, THUMBNAILS_FOLDER);
+    this.setServerConfig(LOCAL, THUMBNAILS_FOLDER);
     this.loadGallery(this.state.keyword);
   }
 
@@ -48,8 +53,6 @@ class App extends React.Component{
   }
 
   render(){
-    let data = {};
-
     return(
       <div className='container'>
         {this.state.data !== null &&

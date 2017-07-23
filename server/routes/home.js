@@ -1,16 +1,16 @@
-var express = require('express');
-var router = express.Router();
-var bodyParser = require('body-parser');
-var fs = require('fs');
-var apiData = require('../data/galleries.json');
-var somejson = { "some": "json" };
+const express = require('express');
+const router = express.Router();
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const apiData = require('../data/galleries.json');
+const somejson = { "some": "json" };
 
 
 //GETS
 router.get('/api/galleries', (req, res) => res.json(apiData));
 
 router.get('/api/galleries/:id', function(req, res) {
-  var galleryId = req.params.id;
+  const galleryId = req.params.id;
 
   //Render Gallery Not Found page in routes that have no info
   if(typeof(apiData[galleryId]) === 'undefined'){
@@ -22,8 +22,8 @@ router.get('/api/galleries/:id', function(req, res) {
 });
 
 router.get('/api/galleries/:id/:idPhoto', function(req, res) {
-  var galleryId = req.params.id;
-  var photoId = parseInt(req.params.idPhoto);
+  const galleryId = req.params.id;
+  const photoId = parseInt(req.params.idPhoto);
 
   //Render Gallery Not Found page in routes that have no info
   if(typeof(apiData[galleryId]['photos'][photoId]) === 'undefined'){
@@ -34,9 +34,10 @@ router.get('/api/galleries/:id/:idPhoto', function(req, res) {
   }
 });
 
+//POSTS
 router.post('/api/galleries/:id/:idPhoto/likeimg', (req, res) => {
-  var galleryId = req.params.id;
-  var photoId = parseInt(req.params.idPhoto);
+  const galleryId = req.params.id;
+  const photoId = parseInt(req.params.idPhoto);
 
   //Render Gallery Not Found page in routes that have no info
   if(typeof(apiData[galleryId]['photos'][photoId]) === 'undefined'){
@@ -47,6 +48,23 @@ router.post('/api/galleries/:id/:idPhoto/likeimg', (req, res) => {
   }
 
   apiData[galleryId]['photos'][photoId]['likes'] = apiData[galleryId]['photos'][photoId]['likes'] + 1;
+
+  fs.writeFile('./server/data/galleries.json', JSON.stringify(apiData, null, 2), 'utf8', err => { if(err) console.log(err) });
+});
+
+router.post('/api/galleries/:id/:idPhoto/downloadimg', (req, res) => {
+  const galleryId = req.params.id;
+  const photoId = parseInt(req.params.idPhoto);
+
+  //Render Gallery Not Found page in routes that have no info
+  if(typeof(apiData[galleryId]['photos'][photoId]) === 'undefined'){
+    res.render('notfound');
+  }
+  else{
+    res.json(apiData[galleryId]['photos'][photoId]['downloads']);
+  }
+
+  apiData[galleryId]['photos'][photoId]['downloads'] = apiData[galleryId]['photos'][photoId]['downloads'] + 1;
 
   fs.writeFile('./server/data/galleries.json', JSON.stringify(apiData, null, 2), 'utf8', err => { if(err) console.log(err) });
 });

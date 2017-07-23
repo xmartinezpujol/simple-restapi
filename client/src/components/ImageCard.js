@@ -1,30 +1,39 @@
 import React from 'react';
+import Downloader from './Downloader';
 
 class ImageCard extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      downloads: this.props.downloads
+      downloads: this.props.downloads,
+      fetched: false
     };
 
-    this.downloadImage = this.downloadImage.bind(this);
+    this.onImageDownload = this.onImageDownload.bind(this);
   }
 
-  downloadImage(e) {
-    e.stopPropagation();
+  onImageDownload() {
     this.setState(() => {
-      return {downloads : this.state.downloads + 1}
+      return {downloads: this.state.downloads + 1}
     });
   }
 
+  componentDidUpdate() {
+    //Fetching control
+    if(this.props.downloads > this.state.downloads) {
+      this.setState(() => {
+        return {downloads : this.props.downloads}
+      });
+    }
+  }
+
   render() {
+
     return(
       <div onClick={(e) => this.props.onOpenModal(this.props.id)} className='card'>
-        <a onClick={(e) => this.downloadImage(e)} href={window.serverURL + this.props.keyword + '/' + this.props.img + '.jpg'} download>
-          <div className='download-image' data-icon="ei-arrow-down" data-size="s"></div>
-        </a>
+        <Downloader keyword={this.props.keyword} id={this.props.id} img={this.props.img} onDownload={this.onImageDownload} />
         <div className='card-image'>
-          <img src={window.serverURL + this.props.keyword + THUMBNAILS_FOLDER + this.props.img  + '_s.jpg'} />
+          <img src={window.serverURL + this.props.keyword + window.thumbFolder + this.props.img  + '_s.jpg'} />
         </div>
         <div className='card-info'>
           <div className='card-res'>
