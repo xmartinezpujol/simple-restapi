@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', type='text/css', href='server.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+  body
+    section#home
+      h1 API READY 
+      ul
+        span Command List
+        li
+          p GET all galleries
+          a(href='http://localhost:8080/api/galleries/', target='_blank') 
+            | http://localhost:8080/api/galleries/
+        li  
+          p GET a gallery by it's keyword identifier
+          span http://localhost:8080/api/galleries/name/
+          a(href='http://localhost:8080/api/galleries/oriental/', target='_blank') 
+            | http://localhost:8080/api/galleries/oriental/
+        li 
+          p GET a gallery detail image
+          span http://localhost:8080/api/galleries/name/photoid
+          a(href='http://localhost:8080/api/galleries/oriental/2', target='_blank') 
+            | http://localhost:8080/api/galleries/oriental/2
+        li 
+          p Direct link to image file
+          span http://localhost:8080/api/galleryname/photoname.jpg
+          a(href='http://localhost:8080/oriental/sushi.jpg', target='_blank')      
+            | http://localhost:8080/oriental/sushi.jpg
+    

@@ -1,0 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500);
+
+body {
+  background-color: #F5F5F5;
+  color: #69F0AE;
+  font-size: 100%;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+}
+
+.button {
+  font-weight: 300;
+  color: #00E676;
+  background-color: #FAFAFA;
+  font-size: 1.2em;
+  text-decoration: none;
+  border: 1px solid #00E676;
+  padding: .5em;
+  border-radius: 5px;
+  margin: 0;
+  transition: all .3s linear;
+}
+
+.button:hover {
+  background-color: #69F0AE;
+  color: #FAFAFA;
+}
+
+a{
+  margin:0;
+}
+
+p {
+  margin-top: 0;
+  font-size: 2em;
+  text-align: center;
+  font-weight: 300;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 15em;
+  font-weight: 100;
+}
+
+#home{
+  text-align: center;
+}
+
+#home h1 {
+  font-size: 100px;
+}
+
+#home ul{
+  margin: 0;
+  padding: 0;
+}
+
+#home ul span{
+  font-size: 30px;
+  color: #004D40;
+}
+
+#home ul li{
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #FAFAFA;
+  list-style-type: none;
+}
+
+#home ul li p{
+  color: #00BFA5;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+}
+
+#home ul li a{
+  font-size: 14px;
+  color: #00E676;
+  font-weight: 300;
+}
+
+#home ul li span{
+  display: block;
+  font-size: 14px;
+  color: #757575;
+  font-weight: 300;
+}
+
+
+#home ul li a:hover{
+  color: #00BFA5;
+}

@@ -54,6 +54,16 @@ GET a gallery detail image
 http://localhost:8080/api/galleries/oriental/2
 ```
 
+POST - Likes the specified image
+```
+http://localhost:8080/oriental/2/likeimg
+```
+
+POST - Registers a download for the specified image
+```
+http://localhost:8080/oriental/2/downloadimg
+```
+
 Direct link to image file
 ```
 http://localhost:8080/oriental/sushi.jpg

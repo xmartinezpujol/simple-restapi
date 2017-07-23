@@ -6,6 +6,15 @@ const apiData = require('../data/galleries.json');
 const somejson = { "some": "json" };
 
 
+//INFO VIEWS
+router.get('/api' , function(req, res) {
+  res.render('start');
+});
+
+router.get('/' , function(req, res) {
+  res.render('start');
+});
+
 //GETS
 router.get('/api/galleries', (req, res) => res.json(apiData));
 
