@@ -30,6 +30,13 @@ Make Production Bundle - Client (ReactJS App)
 npm run prod
 ```
 
+### Testing for Mobile Devices
+
+You can use this Heroku App (https://simple-restapi.herokuapp.com/) as an External Server and open a tunnel using Ngrok (or similar software) with your Client App. Server configuration can be changed in ReactJS App.js file, in setServerConfig function.
+
+Do tests with Wifi, the app isn't optimized yet for mobile devices and detail modals still load Raw images (1-3MB). Mobile devices are still pending for optimization and a React Native app. This is just for testing purposes, don't leave it like that for production.
+
+
 ### API URLs
 
 GET all galleries
@@ -58,4 +65,4 @@ Because of the app scale it isn't actually needed a solution like Redux or App R
 
 
 ### Tech Stack
-ReactJS, NodeJS, Express
+ReactJS, NodeJS, Express, Webpack3 + DevServer, SASS, Pug(Jade). 

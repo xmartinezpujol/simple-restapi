@@ -1,6 +1,8 @@
 import React from 'react';
 import Gallery from './Gallery';
 
+
+//Simple config
 const GALLERY = 'oriental';
 const HEROKU = 'https://simple-restapi.herokuapp.com/';
 const LOCAL = 'http://localhost:8080/';
@@ -15,10 +17,11 @@ class App extends React.Component{
 
     this.loadGallery = this.loadGallery.bind(this);
     this.reloadGallery = this.reloadGallery.bind(this);
+    this.setServerConfig = this.setServerConfig.bind(this);
   }
 
   loadGallery(id) {
-    let url = `${HEROKU}api/galleries/${id}`;
+    let url = `${window.serverURL}api/galleries/${id}`;
     fetch(url)
       .then(response => response.json())
       .then(res => this.setState({ data: res}))
@@ -27,7 +30,12 @@ class App extends React.Component{
       });
   }
 
+  setServerConfig(serverURL) {
+    window.serverURL = serverURL;
+  }
+
   componentDidMount(){
+    this.setServerConfig(HEROKU);
     this.loadGallery(this.state.keyword);
   }
 
