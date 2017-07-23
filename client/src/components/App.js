@@ -22,7 +22,7 @@ class App extends React.Component{
   }
 
   loadGallery(id) {
-    let url = `${window.restapi.serverURL}api/galleries/${id}`;
+    let url = `${window.serverURL}api/galleries/${id}`;
     fetch(url)
       .then(response => response.json())
       .then(res => this.setState({ data: res}))
@@ -32,8 +32,8 @@ class App extends React.Component{
   }
 
   setServerConfig(serverURL, thumbFolder) {
-    window.restapi.serverURL = serverURL;
-    window.restapi.thumbFolder = thumbFolder;
+    window.serverURL = serverURL;
+    window.thumbFolder = thumbFolder;
   }
 
   componentDidMount(){

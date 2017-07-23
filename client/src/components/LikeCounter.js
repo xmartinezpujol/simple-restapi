@@ -17,7 +17,7 @@ class LikeCounter extends React.Component{
     });
 
     //Modify data on server
-    let url = `${window.restapi.serverURL}api/galleries/${this.props.path}/likeimg`;
+    let url = `${window.serverURL}api/galleries/${this.props.path}/likeimg`;
     fetch(url, {method: 'POST'})
       .catch((res) => {
         console.log('ERROR: Could not update likes in the API!');

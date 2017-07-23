@@ -1,7 +1,5 @@
 import React from 'react';
 
-const THUMBNAILS_FOLDER = '/thumbnails/';
-
 class ImageCard extends React.Component{
   constructor(props){
     super(props);
@@ -22,11 +20,11 @@ class ImageCard extends React.Component{
   render() {
     return(
       <div onClick={(e) => this.props.onOpenModal(this.props.id)} className='card'>
-        <a onClick={(e) => this.downloadImage(e)} href={window.restapi.serverURL + this.props.keyword + '/' + this.props.img + '.jpg'} download>
+        <a onClick={(e) => this.downloadImage(e)} href={window.serverURL + this.props.keyword + '/' + this.props.img + '.jpg'} download>
           <div className='download-image' data-icon="ei-arrow-down" data-size="s"></div>
         </a>
         <div className='card-image'>
-          <img src={window.restapi.serverURL + this.props.keyword + THUMBNAILS_FOLDER + this.props.img  + '_s.jpg'} />
+          <img src={window.serverURL + this.props.keyword + THUMBNAILS_FOLDER + this.props.img  + '_s.jpg'} />
         </div>
         <div className='card-info'>
           <div className='card-res'>
