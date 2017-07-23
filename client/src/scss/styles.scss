@@ -147,6 +147,13 @@ a{
   }
   .modal-img{
     transition: all 0.3s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
   }
   .download-detail{
     display: -webkit-box;
@@ -166,6 +173,13 @@ a{
     border-radius: 5px;
     opacity: 0.8;
     z-index: 110;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
     &:hover{
       opacity: 1;
     }
@@ -191,6 +205,13 @@ a{
     border-radius: 5px;
     opacity: 0.8;
     z-index: 110;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
     &:hover{
       opacity: 1;
       cursor: pointer;
@@ -203,6 +224,7 @@ a{
     }
   }
   .title-img{
+    cursor: pointer;    
     padding: 10px;
     font-size: 16px;
     position: absolute;
@@ -211,18 +233,33 @@ a{
     background-color: white;
     border-radius: 5px;
     opacity: 0.8;
-    z-index: 110;    
+    z-index: 110;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
     &:hover{
       opacity: 1;
     }
   }
   .author-img{
+    cursor: pointer;
     color: $color_2;
     font-size: 16px;
     position: absolute;
     bottom: 20px;
     left: 20px;
     opacity: 0.8;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
     &:hover{
       opacity: 1;
     }
