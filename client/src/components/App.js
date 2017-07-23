@@ -6,6 +6,7 @@ import Gallery from './Gallery';
 const GALLERY = 'oriental';
 const HEROKU = 'https://simple-restapi.herokuapp.com/';
 const LOCAL = 'http://localhost:8080/';
+const THUMBNAILS_FOLDER = '/thumbnails/';
 
 class App extends React.Component{
   constructor(props){
@@ -21,7 +22,7 @@ class App extends React.Component{
   }
 
   loadGallery(id) {
-    let url = `${window.serverURL}api/galleries/${id}`;
+    let url = `${window.restapi.serverURL}api/galleries/${id}`;
     fetch(url)
       .then(response => response.json())
       .then(res => this.setState({ data: res}))
@@ -30,12 +31,13 @@ class App extends React.Component{
       });
   }
 
-  setServerConfig(serverURL) {
-    window.serverURL = serverURL;
+  setServerConfig(serverURL, thumbFolder) {
+    window.restapi.serverURL = serverURL;
+    window.restapi.thumbFolder = thumbFolder;
   }
 
   componentDidMount(){
-    this.setServerConfig(HEROKU);
+    this.setServerConfig(HEROKU, THUMBNAILS_FOLDER);
     this.loadGallery(this.state.keyword);
   }
 
