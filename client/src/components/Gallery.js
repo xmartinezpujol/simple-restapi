@@ -22,6 +22,12 @@ class Gallery extends React.Component{
         selected: id
       }
     });
+
+    const modalimg = document.getElementsByClassName('modal-img')[0];
+    modalimg.style.opacity = 0.3;
+    setTimeout(() => {
+      modalimg.style.opacity = 1;
+    }, 300);
   }
 
   closeModal() {

@@ -30,7 +30,7 @@ class Modal extends React.Component{
           <div className='download-detail' data-icon="ei-arrow-down" data-size="s"></div>
         </a>
         <LikeCounter key={this.props.id} path={`${this.props.keyword}/${this.props.id}`} likes={this.props.likes} />
-        <img src={window.serverURL + this.props.keyword + '/' + this.props.imgsel + '.jpg'} />
+        <img className='modal-img' src={window.serverURL + this.props.keyword + '/' + this.props.imgsel + '.jpg'} />
       </div>
     );
   }

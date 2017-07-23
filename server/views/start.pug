@@ -9,6 +9,10 @@ html
       ul
         span Command List
         li
+          p Reminder for External Server Tests
+            span Change ServerURL to: 
+            span https://simple-restapi.herokuapp.com/   
+        li
           p GET all galleries
           a(href='http://localhost:8080/api/galleries/', target='_blank') 
             | http://localhost:8080/api/galleries/
@@ -27,4 +31,15 @@ html
           span http://localhost:8080/api/galleryname/photoname.jpg
           a(href='http://localhost:8080/oriental/sushi.jpg', target='_blank')      
             | http://localhost:8080/oriental/sushi.jpg
-    
+        li 
+          p POST - Likes the specified image
+          span http://localhost:8080/api/galleryname/photoid/likeimg
+          a(href='http://localhost:8080/oriental/2/likeimg', target='_blank') 
+            | http://localhost:8080/oriental/2/likeimg
+        li 
+          p POST - Registers a download for the specified image
+          span http://localhost:8080/galleryname/photoid/downloadimg
+          a(href='http://localhost:8080/oriental/2/downloadimg', target='_blank')      
+            | http://localhost:8080/oriental/2/downloadimg
+            
+            
